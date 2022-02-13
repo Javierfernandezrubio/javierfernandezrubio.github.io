@@ -32,9 +32,9 @@ $(window).scroll(function () {
     }
 
     if ($(window).scrollTop() > 600) {
-        $(".btn-Subir").removeClass("sticky2");
+        $("#btn-Subir").removeClass("sticky2");
     } else {
-        $(".btn-Subir").addClass("sticky2");
+        $("#btn-Subir").addClass("sticky2");
     }
 
 });

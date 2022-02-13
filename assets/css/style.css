@@ -122,26 +122,13 @@ body {
     box-shadow: var(--box-shadow);
     cursor: pointer;
     font-size: 1.5em;
+    opacity: 0;
 }
+
 
 #btn-Subir:active {
     background-color: var(--accent-hover);
 }
-
-.sticky2 {
-    opacity: 0;
-    top: -50px;
-}
-
-/* #btn-Subir a {
-    font-size: 1.5em;
-    color: var(--text-primary);
-}
-
-#btn-Subir a:active {
-    font-size: 1.5em;
-    color: var(--background-primary);
-} */
 
 
 @media screen and (min-width: 766px) {
@@ -693,6 +680,7 @@ nav ul li {
         height: min-content;
         left: 0;
         overflow-y: scroll;
+        scroll-behavior: smooth;
         position: fixed;
         top: 0;
         transform: translate3d(0px, -105%, 0px);
@@ -708,14 +696,13 @@ nav ul li {
     
     .menuppal ul li {
         list-style: none;
-        text-align: center;
+        text-align: start;
         font-size: 1.5rem;
         line-height: 3em;
         height: 3em;
         color: var(--text-primary);
         text-transform: none;
         font-weight: bold;
-        text-align: start;
         margin: 0;
     }
     
@@ -723,6 +710,8 @@ nav ul li {
         text-decoration: none;
         cursor: pointer;
         color: var(--text-primary);
+        display: inline-block;
+        width: 50%;
     }
     
     .menuppal ul li a:active {

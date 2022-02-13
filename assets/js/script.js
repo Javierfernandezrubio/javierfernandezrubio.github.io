@@ -27,9 +27,12 @@ fade($(".quoteLoop > .quote").first());
 $(window).scroll(function () {
     if ($(window).scrollTop() > 300) {
         $(".main_nav").addClass("sticky");
+        $(".btn-Subir").removeClass("sticky2");
     } else {
         $(".main_nav").removeClass("sticky");
+        $(".btn-Subir").addClass("sticky2");
     }
+
 });
 
 // Mobile Navigation

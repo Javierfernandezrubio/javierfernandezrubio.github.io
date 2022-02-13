@@ -27,9 +27,13 @@ fade($(".quoteLoop > .quote").first());
 $(window).scroll(function () {
     if ($(window).scrollTop() > 300) {
         $(".main_nav").addClass("sticky");
-        $(".btn-Subir").removeClass("sticky2");
     } else {
         $(".main_nav").removeClass("sticky");
+    }
+
+    if ($(window).scrollTop() > 600) {
+        $(".btn-Subir").removeClass("sticky2");
+    } else {
         $(".btn-Subir").addClass("sticky2");
     }
 

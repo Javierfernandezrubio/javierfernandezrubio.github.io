@@ -28,9 +28,6 @@
 
     <!-- JavaScript Lordicon -->
     <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
-
-    <!-- Iconos de FontAwesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
 <body class="light-theme">
@@ -41,11 +38,11 @@
     </noscript>
 
     <!-- Header -->
-    
+
     <header id="inicio">
         <div class="main_nav">
             <div class="container">
-               <!--  <div class="mobile-toggle light-theme">
+                <!--  <div class="mobile-toggle light-theme">
                     <!-- <lord-icon class="icon-light" src="https://cdn.lordicon.com/wgwcqouc.json" trigger="morph"
                         colors="primary:#121331,secondary:#08a88a" stroke="100" style="width:50px;height:50px">
                     </lord-icon>
@@ -54,6 +51,12 @@
                     </lord-icon>
                     <ion-icon name="menu"></ion-icon>
                 </div> -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img class="icon-light" src="assets/img/logo-blanco.gif" alt="Logo"/>
+                        <img class="icon-dark" src="assets/img/logo-negro.gif" alt="Logo"/>
+                    </a>
+                </div>
                 <div class="hamburger">
                     <div class="_layer -top"></div>
                     <div class="_layer -mid"></div>
@@ -412,18 +415,19 @@
                 <div class="row">
                     <div class="six columns">
                         <label for="exampleRecipientInput">
-                            <input class="u-full-width" type="text" placeholder="Nombre"></label>
+                            <input class="u-full-width" type="text" placeholder="Nombre" required></label>
                     </div>
                     <div class="six columns">
                         <label for="exampleEmailInput">
-                            <input class="u-full-width" type="email" placeholder="Email"></label>
+                            <input class="u-full-width" type="email" placeholder="Email" required></label>
                     </div>
                 </div>
                 <div class="row">
                     <label for="exampleMessage">
-                        <textarea class="u-full-width" placeholder="Mensaje"></textarea></label>
-                    <input class="button-primary" type="submit" value="Enviar">
+                        <textarea class="u-full-width" placeholder="Mensaje" aria-expanded="false"></textarea>
+                    </label>
                 </div>
+                <input class="button-primary" type="submit" value="Enviar">
             </form>
         </div>
     </section>

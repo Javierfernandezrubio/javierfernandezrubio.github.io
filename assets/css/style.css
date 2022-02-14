@@ -798,7 +798,7 @@ nav ul li {
 
 .scroll-down {
     position: absolute;
-    left: 50%;
+    left: 49vw;
     bottom: 5vh;
     display: block;
     text-align: center;

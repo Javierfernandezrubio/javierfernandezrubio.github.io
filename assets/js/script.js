@@ -4,28 +4,68 @@
  * 
  * @author Javier Fernández Rubio 
  */
-
-
-
-/**
- * Quote Loop
- */
-function fade($ele) {
-    $ele
-        .fadeIn(1000)
-        .delay(3000)
-        .fadeOut(1000, function () {
-            var $next = $(this).next(".quote");
-            fade($next.length > 0 ? $next : $(this).parent().children().first());
-        });
-}
-fade($(".quoteLoop > .quote").first());
-
-/**
- * Navegación
- */
 $(document).ready(function () {
 
+    // Control sobre localStorage
+    if (!localStorage.getItem("darkMode")) {
+        localStorage.setItem("darkMode", "light-theme");
+        $(".theme-btn").text("Modo Oscuro");
+    } else {
+        if (localStorage.getItem("darkMode") === "dark-theme") {
+            $("body").removeClass("light-theme");
+            $("body").addClass("dark-theme");
+
+            $(".icon-light").css("display", "none");
+            $(".icon-dark").css("display", "block");
+
+            $(".theme-btn").text("Modo Claro");
+        }
+            
+    }
+    
+    /**
+     * Modo oscuro
+     */
+    $(".theme-btn").click(function () {
+        if ($(".theme-btn").text() === "Modo Oscuro") {
+            $(".icon-light").css("display", "none");
+            $(".icon-dark").css("display", "block");
+
+            $("body").removeClass(localStorage.getItem("darkMode"))
+            localStorage.setItem("darkMode", "dark-theme");
+            $("body").addClass(localStorage.getItem("darkMode"))
+
+            $(".theme-btn").text("Modo Claro");
+        } else {
+            $(".icon-light").css("display", "block");
+            $(".icon-dark").css("display", "none");
+
+            $("body").removeClass(localStorage.getItem("darkMode"))
+            localStorage.setItem("darkMode", "light-theme");
+            $("body").addClass(localStorage.getItem("darkMode"));
+
+            $(".theme-btn").text("Modo Oscuro");
+            
+        }
+    });
+
+    /**
+     * Animación de la zona de citas
+     */
+    function fade($ele) {
+        $ele
+            .fadeIn(1000)
+            .delay(3000)
+            .fadeOut(1000, function () {
+                var $next = $(this).next(".quote");
+                fade($next.length > 0 ? $next : $(this).parent().children().first());
+            });
+    }
+    fade($(".quoteLoop > .quote").first());
+
+    /**
+     * Navegación
+     */
     $(window).scroll(function () {
         if ($(window).scrollTop() > 300) {
             $(".main_nav").addClass("sticky");
@@ -34,7 +74,7 @@ $(document).ready(function () {
             $(".menuppal").removeClass("is_active");
             $(".hamburger").removeClass("is-active");
         }
-        
+
         // Boton Subir
         if ($(window).scrollTop() > 600) {
             $("#btn-Subir").css("display", "flex");
@@ -44,95 +84,54 @@ $(document).ready(function () {
             $("#btn-Subir").css("display", "none");
         }
     });
-});
 
-// Mobile Navigation
-/* $(".mobile-toggle").click(function () {
-    if ($(".main_nav").hasClass("open-nav")) {
-        $(".main_nav").removeClass("open-nav");
-    } else {
-        $(".main_nav").addClass("open-nav");
-    }
-});
 
-$(".main_nav li a").click(function () {
-    if ($(".main_nav").hasClass("open-nav")) {
-        $(".navigation").removeClass("open-nav");
-        $(".main_nav").removeClass("open-nav");
-    }
-}); */
+    /**
+     * Scroll suave
+     */
+    jQuery(document).ready(function ($) {
+        $(".smoothscroll").on("click", function (e) {
+            e.preventDefault();
 
-$("#menu-icon").click(function () {
-    this.style.trigger = function (trigger) {
-        return trigger === 'hover' ? 'hover' : 'click';
-    }
-});
+            let target = this.hash,
+                $target = $(target);
 
-/**
- * Smooth Scrolling
- */
-jQuery(document).ready(function ($) {
-    $(".smoothscroll").on("click", function (e) {
-        e.preventDefault();
-
-        var target = this.hash,
-            $target = $(target);
-
-        $("html, body")
-            .stop()
-            .animate({
-                    scrollTop: $target.offset().top
-                },
-                800,
-                "swing",
-                function () {
-                    window.location.hash = target;
-                }
-            );
-    });
-});
-
-TweenMax.staggerFrom(".heading", 0.8, {
-    opacity: 0,
-    y: 20,
-    delay: 0.2
-}, 0.4);
-
-/**
- *Modo oscuro
- */
-jQuery(document).ready(function ($) {
-    $(".theme-btn").click(function () {
-        localStorage.setItem("darkMode", "dark-theme");
-        $("body").toggleClass(localStorage.getItem("darkMode"));
-        $(".theme-btn").text(function (i, text) {
-            return text === "Modo Oscuro" ? "Modo Claro" : "Modo Oscuro";
+            $("html, body")
+                .stop()
+                .animate({
+                        scrollTop: $target.offset().top
+                    },
+                    800,
+                    "swing",
+                    function () {
+                        window.location.hash = target;
+                    }
+                );
         });
-
-        if ($(".theme-btn").text() === "Modo Claro") {
-            localStorage.setItem("darkMode", "light-theme");
-            $(".icon-light").css("display", "none");
-            $(".icon-dark").css("display", "block");
-        } else {
-            localStorage.setItem("darkMode", "dark-theme");
-            $(".icon-light").css("display", "block");
-            $(".icon-dark").css("display", "none");
-        }
-
     });
+
+    /**
+     * Efecto de los titulos principales
+     */
+    TweenMax.staggerFrom(".heading", 1, {
+        opacity: 0,
+        y: 20,
+        delay: 0.5
+    }, 0.5);
+
+
+    /**
+     * Menu movil
+     * 
+     */
+    function toggleMenu() {
+        $(".hamburger").click(
+            function () {
+                $(".menuppal").toggleClass("is_active");
+                $(".hamburger").toggleClass("is-active");
+            }
+        );
+    }
+    toggleMenu();
+
 });
-
-
-
-// selector
-var menu = document.querySelector('.hamburger');
-
-// method
-function toggleMenu(event) {
-    this.classList.toggle('is-active');
-    document.querySelector(".menuppal").classList.toggle("is_active");
-    event.preventDefault();
-}
-
-// event
-menu.addEventListener('click', toggleMenu, false);

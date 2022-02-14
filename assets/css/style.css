@@ -59,6 +59,7 @@
 
 html {
     font-size: 62.5%;
+    background-color: var(--background-primary);
 }
 
 body {
@@ -70,6 +71,10 @@ body {
     color: var(--text-primary);
     *background-color: var(--background-color);
     background: url(../img/portada.jpg) repeat fixed;
+}
+
+section {
+    *height: 100vh;
 }
 
 /* == Colores secciones == */
@@ -135,6 +140,42 @@ body {
     .logo {
         display: none;
     }
+}
+
+/* == Boton CV == */
+.row-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.button-cv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 10px;
+    background-color: var(--accent);
+    *box-shadow: var(--box-shadow);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.button-cv:hover {
+    background-color: var(--accent-hover);
+}
+
+.button-cv a {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.button-cv a:hover {
+    color: var(--white);
 }
 
 
@@ -1131,7 +1172,7 @@ footer p {
 
 .social-link .icon-box:hover {
     background: var(--accent);
-    color: var(--text-primary);
+    color: var(--background-primary);
 }
 
 .copyright {

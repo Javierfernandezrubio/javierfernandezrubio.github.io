@@ -59,38 +59,32 @@
 
 html {
     font-size: 62.5%;
-    background-color: var(--background-primary);
 }
 
 body {
     font-size: 1.5em;
     line-height: 1.6;
     font-weight: 400;
-    *font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    *font-family: "Roboto", Helvetica, Arial, sans-serif;
     color: var(--text-primary);
-    *background-color: var(--background-color);
-    background: url(../img/portada.jpg) repeat fixed;
+    background-color: var(--background-secondary);
 }
 
 section {
-    *height: 100vh;
+    min-height: 30vh;
 }
 
 /* == Colores secciones == */
 #about {
-    background-color: var(--background-primary);
-}
-
-#skills {
     background-color: var(--background-secondary);
 }
 
-#portfolio {
+#skills {
     background-color: var(--background-primary);
 }
 
-#testimonial {
+#portfolio {
     background-color: var(--background-secondary);
 }
 
@@ -98,6 +92,9 @@ section {
     background-color: var(--background-primary);
 }
 
+#testimonial {
+    background-color: var(--background-secondary);
+}
 /* == Logo == */
 
 .logo {
@@ -159,7 +156,7 @@ section {
     background-color: var(--accent);
     *box-shadow: var(--box-shadow);
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1em;
 }
 .button-cv:hover {
     background-color: var(--accent-hover);
@@ -167,15 +164,27 @@ section {
 
 .button-cv a {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     text-decoration: none;
     color: var(--white);
 }
 
+.button-cv ion-icon {
+    margin-left: 5px;
+    font-size: large;
+}
+
 .button-cv a:hover {
     color: var(--white);
+}
+
+@media screen and (min-width: 766px) {
+    .row-button {
+        justify-content: flex-start;
+    }
 }
 
 
@@ -467,7 +476,7 @@ header {
     justify-content: center;
     width: 100%;
     height: 100vh;
-    *background: url('../img/portada.jpg') no-repeat center center fixed;
+    background: url('../img/portada.jpg') center fixed;
     color: var(--text-primary);
 }
 
@@ -602,11 +611,11 @@ nav ul a {
 }
 
 nav ul a:hover {
-    color: var(--accent);
+    color: var(--accent-hover);
 }
 
 nav ul a:active {
-    color: var(--accent);
+    color: var(--accent-hover);
 } 
 
 nav ul li {
@@ -614,6 +623,10 @@ nav ul li {
     margin-left: 35px;
     line-height: 1.5;
     letter-spacing: 1px;
+}
+
+.section-nav {
+    color: var(--accent);
 }
 
 @media only screen and (max-width: 766px) {
@@ -798,7 +811,7 @@ nav ul li {
 
 .scroll-down {
     position: absolute;
-    left: 49vw;
+    left: 47vw;
     bottom: 5vh;
     display: block;
     text-align: center;
@@ -817,6 +830,12 @@ nav ul li {
     -webkit-animation: fade_move_down 2s ease-in-out infinite;
     -moz-animation: fade_move_down 2s ease-in-out infinite;
     animation: fade_move_down 2s ease-in-out infinite;
+}
+
+@media only screen and (min-width: 766px ){
+    .scroll-down {
+        left: 49vw;
+    }
 }
 
 /*animated scroll arrow animation*/
@@ -872,16 +891,6 @@ nav ul li {
 
 #about {
     padding: 100px 0 50px 0;
-}
-
-/* Team Section
-********************************************************************* */
-#team {
-    padding: 50px 0 100px 0;
-}
-
-#team .icon {
-    font-size: 26px;
 }
 
 /* == Skills == */
@@ -972,7 +981,7 @@ nav ul li {
 
 /* == Portfolio == */
 #portfolio {
-    padding: 100px 0 100px 0;
+    padding: 100px 0 50px 0;
 }
 
 .image {
@@ -994,7 +1003,7 @@ nav ul li {
 
 /* == Testimonial == */
 #testimonial {
-    padding: 100px 0 100px 0;
+    padding: 100px 0 50px 0;
 }
 
 .quoteLoop {
@@ -1014,7 +1023,14 @@ nav ul li {
 
 /* == Contacto == */
 #contacto {
-    padding: 100px 0 100px 0;
+    padding: 100px 0 50px 0;
+}
+
+.row-contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 input[type="email"],
@@ -1038,7 +1054,7 @@ select {
 }
 
 textarea {
-    min-height: 250px;
+    min-height: 150px;
 }
 
 input[type="submit"] {
@@ -1067,33 +1083,9 @@ input[type="submit"]:hover {
 }
 
 /* == Footer == */
-/* footer {
-    min-height: 120px;
-    padding: 40px 0 40px 0;
-    background: #e55d87;
-    background: -moz-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
-    background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
-    background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e55d87', endColorstr='#5fc3e4', GradientType=1);
-    box-sizing: border-box;
-}
-
-footer p {
-    color: #ffffff;
-    margin: 20px 0 0 0;
-}
-
-.socialIcons {
-    font-size: 34px;
-    color: rgba(255, 255, 255, 0.7);
-} */
-
-/* == Footer propio == */
-
-
 footer {
-    padding: 2em;
-    background-color: var(--background-primary);
+    padding: 0 2em;
+    background-color: var(--background-secondary);
     color: var(--text-primary);
     text-align: center;
     list-style: none;
@@ -1101,7 +1093,7 @@ footer {
 
 footer div {
     font-size: 12px;
-    margin-bottom: 25px;
+    *margin-bottom: 25px;
 }
 
 .redes {
@@ -1142,14 +1134,15 @@ footer p {
 
 .social-link {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .social-link .icon-box {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background: var(--action-secondary);
     border-radius: 50%;
     display: flex;
@@ -1170,9 +1163,39 @@ footer p {
     color: hsla(210, 53%, 51%, 1);
 }
 
+.social-link .telegram {
+    color: hsla(210, 53%, 51%, 1);
+}
+
+.social-link .linkedin {
+    color: hsla(210, 53%, 51%, 1);
+}
+
 .social-link .icon-box:hover {
     background: var(--accent);
     color: var(--background-primary);
+}
+
+.social-link a {
+    text-decoration: none;
+}
+
+.correo{
+    color: var(--text-secondary);
+    font-size: var(--fs-4);
+    text-align: center;
+    padding: 1rem;
+}
+
+.correo p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.correo a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.5em;
 }
 
 .copyright {
@@ -1180,7 +1203,6 @@ footer p {
     font-size: var(--fs-4);
     text-align: center;
     padding: 1rem;
-    *border-top: 1px solid var(--action-primary);
 }
 
 .copyright a {
@@ -1250,6 +1272,10 @@ form {
     width: 100%;
     box-sizing: border-box;
     resize: none;
+}
+
+.u-full-width textarea {
+    height: auto;
 }
 
 .u-max-full-width {

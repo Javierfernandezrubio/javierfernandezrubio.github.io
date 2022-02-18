@@ -20,9 +20,9 @@ $(document).ready(function () {
 
             $(".theme-btn").text("Modo Claro");
         }
-            
+
     }
-    
+
     /**
      * Modo oscuro
      */
@@ -45,7 +45,7 @@ $(document).ready(function () {
             $("body").addClass(localStorage.getItem("darkMode"));
 
             $(".theme-btn").text("Modo Oscuro");
-            
+
         }
     });
 
@@ -83,32 +83,64 @@ $(document).ready(function () {
             $("#btn-Subir").css("opacity", "0");
             $("#btn-Subir").css("display", "none");
         }
+
+        // Control de section
+        let sections = [$("#nav1"), $("#nav2"), $("#nav3"), $("#nav4")];
+
+
+        $("section").each(function () {
+            if (($(window).scrollTop() + 300 > $("#about").offset().top - $(".main_nav").height()) && $(window).scrollTop() < ($("#skills").offset().top) - $(".main_nav").height()) {
+                sections.forEach(function (element) {
+                    element.removeClass("section-nav");
+                });
+                $("#nav1").toggleClass("section-nav");
+            } else if (($(window).scrollTop() > $("#skills").offset().top - $(".main_nav").height()) && $(window).scrollTop() < ($("#portfolio").offset().top) - $(".main_nav").height()) {
+                sections.forEach(function (element) {
+                    element.removeClass("section-nav");
+                });
+                $("#nav2").toggleClass("section-nav");
+            } else if (($(window).scrollTop() > $("#portfolio").offset().top - $(".main_nav").height()) && $(window).scrollTop() < ($("#contacto").offset().top) - $(".main_nav").height()) {
+                sections.forEach(function (element) {
+                    element.removeClass("section-nav");
+                });
+                $("#nav3").toggleClass("section-nav");
+            } else if (($(window).scrollTop() > $("#contacto").offset().top - $(".main_nav").height())) {
+                sections.forEach(function (element) {
+                    element.removeClass("section-nav");
+                });
+                $("#nav4").toggleClass("section-nav");
+            } else {
+                $("main_nav a").removeClass("section-nav");
+            }
+        });
+
+        console.log($("#about").offset().top);
+        console.log($("#skills").offset().top);
     });
 
 
     /**
      * Scroll suave
      */
-    jQuery(document).ready(function ($) {
-        $(".smoothscroll").on("click", function (e) {
-            e.preventDefault();
+    $(".smoothscroll").on("click", function (e) {
+        e.preventDefault();
 
-            let target = this.hash,
-                $target = $(target);
+        let target = this.hash,
+            $target = $(target);
 
-            $("html, body")
-                .stop()
-                .animate({
-                        scrollTop: $target.offset().top
-                    },
-                    800,
-                    "swing",
-                    function () {
-                        window.location.hash = target;
-                    }
-                );
-        });
+        $("html, body")
+            .stop()
+            .animate({
+                    scrollTop: $target.offset().top
+                },
+                800,
+                "swing",
+                function () {
+                    window.location.hash = target;
+                }
+            );
     });
+
 
     /**
      * Efecto de los titulos principales

@@ -86,8 +86,6 @@ $(document).ready(function () {
 
         // Control de section
         let sections = [$("#nav1"), $("#nav2"), $("#nav3"), $("#nav4")];
-
-
         $("section").each(function () {
             if (($(window).scrollTop() + 300 > $("#about").offset().top - $(".main_nav").height()) && $(window).scrollTop() < ($("#skills").offset().top) - $(".main_nav").height()) {
                 sections.forEach(function (element) {
@@ -170,8 +168,8 @@ $(document).ready(function () {
      */
     let zindex = 10;
 
-    $("div.card").click(function (e) {
-        e.preventDefault();
+    $("div.card").hover(function (e) {
+        //e.preventDefault();
 
         var isShowing = false;
 

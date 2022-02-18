@@ -67,6 +67,7 @@ body {
     font-weight: 400;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     *font-family: "Roboto", Helvetica, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
     color: var(--text-primary);
     background-color: var(--background-secondary);
 }
@@ -152,7 +153,7 @@ section {
     justify-content: center;
     align-items: center;
     border: none;
-    padding: 10px;
+    padding: 6px 30px 8px;
     background-color: var(--accent);
     *box-shadow: var(--box-shadow);
     cursor: pointer;
@@ -218,7 +219,7 @@ section {
     box-sizing: border-box;
 }
 
-/* == Dispositivos para mayor de 400px == */
+/* == Dispositivos para mayor de 300px == */
 @media (min-width: 300px) {
     .container {
         width: 85%;
@@ -375,6 +376,8 @@ section {
         margin-left: 52%;
     }
 }
+
+
 
 /* == Tipografía == */
 h1,
@@ -622,8 +625,15 @@ nav ul li {
     display: inline-block;
     margin-left: 35px;
     line-height: 1.5;
-    letter-spacing: 1px;
+    letter-spacing: 0px;
 }
+
+@media  only screen and (min-width: 780px) {
+    nav ul li {
+        letter-spacing: 1px;
+    }
+}
+    
 
 .section-nav {
     color: var(--accent);

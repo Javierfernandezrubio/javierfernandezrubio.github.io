@@ -77,21 +77,30 @@ div.cards {
   max-width: 830px;
   text-align: center;
 }
+@media screen and (mix-width: 500px) {
+  div.cards {
+    justify-content: flex-start;
+  }
+}
 div.card {
   background: var(--background-primary);
   display: inline-block;
   margin: 10px;
-  max-width: 250px;
+  max-width: 300px;
   min-width: 200px;
-  *perspective: 1000;
+  perspective: 1000;
   position: relative;
   text-align: left;
   transition: all 0.3s 0s ease-in;
   *width: 33%;
   z-index: 1;
 }
+@media screen and (min-width: 768px) {
+  div.card {
+    max-width: 300px;
+  }
+}
 div.card img {
-  *max-width: 250px;
   width: 100%;
 }
 div.card .card__image-holder {

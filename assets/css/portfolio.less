@@ -83,14 +83,15 @@ div.cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 
     margin: 60px auto;
     max-width: 100%;
-   text-align: center;
+    width: 100%;
+    text-align: center;
 
-    @media (min-width: 400px) {
-       *justify-content: flex-start;
+    @media (min-width: 750px) {
+       justify-content: space-around;
     }
 }
 
@@ -99,17 +100,21 @@ div.card {
     display: inline-block;
     margin: 10px;
     max-width: 100%;
-    min-width: 200px;
+    min-width: 300px;
     perspective: 1000;
     position: relative;
     text-align: left;
     transition: all 0.3s 0s ease-in;
-    *width: 33%;
+    width: calc((100% / 3) - 20px);
     z-index: 1;
 
-    @media screen and (min-width: 400px) {
-        max-width: 300px;
-        width: 100%;
+    @media (min-width: 500px) {
+        min-width: calc((100% / 3) - 20px);
+    }
+
+    @media screen and (min-width: 750px) {
+        *max-width: calc((100% / 4));
+        min-width: calc((100% / 4));
     }
 
     img {

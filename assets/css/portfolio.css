@@ -69,18 +69,25 @@ a.btn:active {
   transition: all 0.025s 0s ease-out;
 }
 div.cards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around; */
+  display: grid;
+  grid-template-columns: 1fr;
   margin: 60px auto;
   max-width: 100%;
   width: 100%;
   text-align: center;
 }
-@media (min-width: 750px) {
+@media (min-width: 500px) {
   div.cards {
-    justify-content: space-around;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 800px) {
+  div.cards {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 div.card {
@@ -88,13 +95,22 @@ div.card {
   display: inline-block;
   margin: 10px;
   max-width: 100%;
-  min-width: 250px;
+  min-width: 150px;
   perspective: 1000;
   position: relative;
   text-align: left;
   transition: all 0.3s 0s ease-in;
-  width: calc((100% / 3) - 20px);
+  *width: calc((100% / 3) - 20px);
   z-index: 1;
+  /* @media screen and (min-width: 770px) {
+        max-width: calc((100% / 2));
+        min-width: calc((100% / 4));
+    }
+
+    @media screen and (min-width: 1000px) {
+        max-width: calc((100% / 3));
+        min-width: calc((100% / 6));
+    } */
   /* @media screen and (min-resolution: 192dpi) {
         max-width: calc((100% / 4));
         min-width: calc((100% / 6));
@@ -103,18 +119,6 @@ div.card {
 @media (min-width: 500px) and (min-resolution: 390dpi) {
   div.card {
     min-width: calc((100% / 2) - 20px);
-  }
-}
-@media screen and (min-width: 770px) {
-  div.card {
-    max-width: calc(100% / 2);
-    min-width: calc(100% / 4);
-  }
-}
-@media screen and (min-width: 1000px) {
-  div.card {
-    max-width: calc(100% / 3);
-    min-width: calc(100% / 6);
   }
 }
 div.card img {

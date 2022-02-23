@@ -123,6 +123,8 @@ div.card {
 }
 div.card img {
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 div.card .card__image-holder {
   height: 0;

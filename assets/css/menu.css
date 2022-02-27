@@ -52,6 +52,12 @@ nav ul a {
     cursor: pointer;
 }
 
+@media screen and (min-width: 840px) {
+    nav ul a {
+        font-size: 14px;
+    }
+}
+
 nav ul a:hover {
     color: var(--accent-hover);
 }

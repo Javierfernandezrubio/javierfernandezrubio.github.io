@@ -156,6 +156,18 @@ $(document).ready(function () {
                 $(".hamburger").toggleClass("is-active");
             }
         );
+
+        $menu = $(".menuppal ul li a");
+        $menu.each(function () {
+            if ($(this).hasClass("theme-btn")) {
+                $(this).off("click", toggleMenu);
+            } else {
+                $(this).click(function () {
+                    $(".menuppal").removeClass("is_active");
+                    $(".hamburger").removeClass("is-active");
+                });
+            }
+        });
     }
     toggleMenu();
 
